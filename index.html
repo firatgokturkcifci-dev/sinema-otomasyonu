@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Film Sitesi</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body id="home-page">
+
+    <header>
+        <div class="container header-container">
+            <h1><a href="index.html">TMDB Klon</a></h1>
+            <div class="header-right">
+                <button id="show-favorites-btn" class="header-fav-btn">❤️ Favorilerim</button>
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Film ara (örn: Matrix)...">
+                    <button id="search-btn">Ara</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div id="tags" class="tags-container"></div>
+        
+        <h2 id="page-title">Popüler Filmler</h2>
+        
+        <div id="movies-grid" class="grid-container">
+            <p>Yükleniyor...</p>
+        </div>
+
+        <div id="pagination-controls" class="pagination">
+            <button id="prev-btn" class="page-btn">← Önceki</button>
+            <span id="current-page">Sayfa 1</span>
+            <button id="next-btn" class="page-btn">Sonraki →</button>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
