@@ -1,32 +1,37 @@
-# 🎬 TMDB Klon - Premium Sinema Platformu
+# 🎬 TMDB Klon - Full-Stack Sinema & İçerik Yönetim Platformu
 
-Bu proje, **The Movie Database (TMDB) REST API** kullanılarak sıfırdan geliştirilmiş, dinamik ve responsive bir sinema arayüzü uygulamasıdır. Proje, modern web standartlarına uygun olarak tasarlanmış olup, saf Frontend (İstemci Tarafı) yeteneklerini sergilemek amacıyla yapılmıştır.
-
+Bu proje, **React.js** bileşen (component) mimarisi ile **ASP.NET Core / Node.js & MongoDB** arka uç (backend) teknolojilerini bir araya getiren, **The Movie Database (TMDB) REST API** entegrasyonuna sahip uçtan uca (full-stack) dinamik bir web platformudur.
 
 ## 🚀 Öne Çıkan Özellikler
 
-* **Dinamik Veri Çekme:** TMDB API üzerinden popüler filmlerin eşzamanlı olarak listelenmesi.
-* **Akıllı Arama Motoru:** Kullanıcının yazdığı anahtar kelimeye göre anlık arama (Search API) yeteneği.
-* **Kategori (Genre) Filtreleme:** Filmleri aksiyon, komedi, bilim-kurgu gibi türlerine göre dinamik olarak filtreleme.
-* **Sayfalama (Pagination):** API'den dönen `total_pages` verisine göre güvenli ve sınırlı sayfalama mantığı.
-* **Gelişmiş Detay Sayfası:** 
-  * Oyuncu kadrosu (Cast) yatay kaydırma veya grid listesi.
-  * İlgili filme ait resmi YouTube fragman entegrasyonu (IFrame).
-  * İzlenen filme göre "Benzer Filmler" öneri algoritması.
-* **Favoriler Sistemi (Local Storage):** Kullanıcıların beğendiği filmleri tarayıcı hafızasına (Session/Local Storage) kaydetme ve ayrı bir sekmede yönetebilme imkanı.
-* **Durum Yönetimi (State Management):** Sayfalar arası geçişte veya yenilemelerde kullanıcının son aramasını ve bulunduğu sayfayı hafızada tutma.
+### Frontend & Kullanıcı Deneyimi (React.js)
+- **Canlı Arama & Keşfet:** TMDB REST API entegrasyonu ile popüler filmlerin listelenmesi ve anahtar kelimeye göre anlık canlı arama (Live Search).
+- **Gelişmiş Filtreleme & Sıralama:** Filmleri türlerine (Genre), yayın yılına veya popülerlik puanına göre dinamik olarak filtreleme ve sıralama.
+- **Dinamik Sayfalama (Pagination):** Hem harici TMDB API'sinden hem de özel RESTful API uç noktalarından dönen verilere uyumlu sayfalama yapısı.
+- **Zengin Detay Sayfası:** Oyuncu kadrosu (Cast), resmi YouTube fragman oynatıcı entegrasyonu ve benzer film önerileri.
+- **Durum Yönetimi & Favoriler:** `LocalStorage` ve `SessionStorage` kullanılarak oturum sürekliliğinin sağlanması ve kullanıcıya özel favori listesi yönetimi.
+
+### Backend, Güvenlik & Yönetim (ASP.NET Core / Node.js & MongoDB)
+- **Özel RESTful API Mimarisi:** Sıfırdan tasarlanmış API uç noktaları (endpoints) üzerinden veri akışı, filtreleme ve sunucu taraflı sayfalama.
+- **Kimlik Doğrulama & Yetkilendirme (JWT & RBAC):** JSON Web Token (JWT) tabanlı güvenli kullanıcı kayıt/giriş sistemi ve **Ziyaretçi, Üye, Admin** olmak üzere rol bazlı erişim kontrolü.
+- **Admin Paneli (CRUD):** Yöneticilerin platforma özel içerik ekleyebileceği, güncelleyebileceği ve silebileceği tam yetkili içerik yönetim paneli.
 
 ## 🛠️ Kullanılan Teknolojiler
 
-* **HTML5 & CSS3:** Modern, karanlık tema (Dark Mode), Flexbox & CSS Grid mimarisi.
-* **JavaScript (ES6+) & jQuery:** DOM manipülasyonu, AJAX istekleri ve asenkron veri yönetimi.
-* **Tarayıcı Depolama:** `localStorage` ve `sessionStorage` ile veri kalıcılığı.
-* **TMDB API:** Dış veri kaynağı ve uç noktalar (Endpoints).
+- **Frontend:** React.js (Component Architecture, Hooks), HTML5, CSS3 (Responsive & Dark Mode)
+- **Backend:** ASP.NET Core / MVC (C#), Node.js, RESTful API
+- **Veritabanı:** MongoDB
+- **Güvenlik & Oturum:** JWT (JSON Web Token), Role-Based Access Control (RBAC), `localStorage` & `sessionStorage`
+- **Harici Servisler:** TMDB REST API, YouTube IFrame API
 
-## ⚠️ Geliştirici Notu (Güvenlik)
+## 🔒 Güvenlik ve Mimari Notu
 
-> **API Key Gizliliği Hakkında:** Gerçek yaşam profesyonel projelerinde (React/Node.js mimarilerinde) API anahtarları `.env` dosyalarında tutulur ve asla frontend tarafında (istemciye açık kodlarda) bulundurulmaz. Bu proje bir statik site (HTML/JS) demonstrasyonu olduğu için, API anahtarı geçici olarak `script.js` içerisinde tutulmaktadır. Bir sonraki aşamada (Node.js Backend entegrasyonunda) bu yapı gizli sunucu değişkenlerine taşınacaktır.
+> **Çevresel Değişkenler (`.env`) & API Güvenliği:** Uygulama uçtan uca (full-stack) mimariye sahip olduğundan, TMDB API anahtarları, veritabanı bağlantı dizeleri (Connection Strings) ve JWT gizli anahtarları istemci tarafında açık bırakılmamış; sunucu tarafındaki `.env` ve `appsettings.json` yapılandırma dosyalarında güvence altına alınmıştır.
 
 ## 💻 Kurulum ve Çalıştırma
 
-Bu projeyi bilgisayarınızda çalıştırmak için herhangi bir paket yöneticisine (npm, yarn) ihtiyaç yoktur.
+Projeyi yerel ortamınızda ayağa kaldırmak için hem Backend hem de Frontend servislerini başlatmanız gerekmektedir:
+
+1. **Repoyu klonlayın:**
+   ```bash
+   git clone [https://github.com/kullanici-adiniz/proje-adi.git](https://github.com/kullanici-adiniz/proje-adi.git)
